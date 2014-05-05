@@ -1,5 +1,4 @@
 /*
-
 eZee App UI
 by Viken Patel
 */
@@ -83,35 +82,40 @@ header a.back{
 }
 
 
-/* Sidebar: Push by Viken */
-
-.v-menu {
-    background: none repeat scroll 0 0 #333333;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 240px;
-    -webkit-transform: translate3d(-240px, 0px, 0px);
-    transform: translate3d(-240px, 0px, 0px);
-    -webkit-transition: -webkit-transform 0.5s;
-	transition: transform 0.5s;
+button{
+    background:#111;
+    border: 1px solid #111;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
 }
-.vanimate{
-     -webkit-transform: translate3d(240px, 0px, 0px);
-    transform: translate3d(240px, 0px, 0px);
-}
-.v-menu ul {
-    height: 100%;
-    overflow: auto;
-}
-
-.v-menu ul li a {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    color: #FFFFFF;
-    display: inline-block;
-    padding: 15px;
-    text-decoration: none;
+#content{
+    height: calc(100% - 80px);
+    position: relative;
     width: 100%;
 }
-
+.panel{
+    background: #FFFFFF;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+    -webkit-transition: -webkit-transform 0.5s;
+            transition: transform 0.5s;
+    z-index: 99;
+}
+.next{
+    -webkit-transform: translate3d(100%, 0px, 0px);
+    transform: translate3d(100%, 0px, 0px);
+    z-index: 99;
+}
+.prev{
+    -webkit-transform: translate3d(-100%, 0px, 0px);
+    transform: translate3d(-100%, 0px, 0px);
+    z-index: 99;
+}
+.current{
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+    z-index: 1000;
+}

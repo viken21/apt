@@ -10,45 +10,6 @@
     <title>Simple Page Transition for App</title>
 
     <link href="style.css" rel="stylesheet">
-    <style>
-        button{
-            background:#111;
-            border: 1px solid #111;
-            color: #fff;
-            padding: 10px;
-            cursor: pointer;
-        }
-        #content{
-            height: calc(100% - 80px);
-            position: relative;
-            width: 100%;
-        }
-        .panel{
-            background: #FFFFFF;
-            height: 100%;
-            padding: 20px;
-            position: absolute;
-            width: 100%;
-            -webkit-transition: -webkit-transform 0.5s;
-	                transition: transform 0.5s;
-            z-index: 99;
-        }
-        .next{
-            -webkit-transform: translate3d(100%, 0px, 0px);
-            transform: translate3d(100%, 0px, 0px);
-            z-index: 99;
-        }
-        .prev{
-            -webkit-transform: translate3d(-100%, 0px, 0px);
-            transform: translate3d(-100%, 0px, 0px);
-            z-index: 99;
-        }
-        .current{
-            -webkit-transform: translate3d(0px, 0px, 0px);
-            transform: translate3d(0px, 0px, 0px);
-            z-index: 1000;
-        }
-    </style>
   </head>
 
   <body>
@@ -59,11 +20,11 @@
         <a class="back"><i class="fa fa-angle-left"></i></a>
     </header>
     <div id="content">
-    <div id="page1" class="panel current">
+    <div id="page1" class="panel current" data-title="Home">
         Page1 Content<br><br>
         <button data-go="page2" class="gotopage">Go to Page2</button>
     </div>
-      <div id="page2" class="panel next">
+      <div id="page2" class="panel next" data-title="About">
         Page2 Content<br><br>
           <button data-go="page1" class="gotopage">Go to Page1</button>
      </div>
@@ -87,9 +48,15 @@
                 setTimeout(function(){
                     $('.prev').addClass('next').removeClass('prev');    
                 },500);
-                
+                setPagetitle();
             });
+            setPagetitle();
         });  
+        
+        function setPagetitle(){
+          var pagetitle = $(".current").attr("data-title");
+          $("header").find("h1").html(pagetitle);
+        }
     </script>
   </body>
 </html>
