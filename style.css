@@ -1,0 +1,117 @@
+/*
+
+eZee App UI
+by Viken Patel
+*/
+* {
+	-webkit-user-select:none; /* Prevent copy paste for all elements except text fields */
+	-webkit-tap-highlight-color:rgba(0, 0, 0, 0); /* set highlight color for user interaction */
+	-moz-tap-highlight-color:rgba(0, 0, 0, 0); /* set highlight color for user interaction */
+	-ms-touch-action:none;
+	-moz-user-select:-moz-none
+	-webkit-touch-callout: none; /* prevent the popup menu on any links*/
+	margin:0;
+	padding:0;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+body {
+  background-color: #efeff4;
+  font: normal 10pt/13pt HelveticaNeue, Helvetica, Sans-serif;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wrapper {
+    height: 100%;
+    -webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+header{
+    background: #037DFF;
+    display: inline-block;
+    padding: 5px 40px;
+    width:100%;
+}
+header h1{
+    color: #FFFFFF;
+    font-size: 1.8em;
+    line-height: 23px;
+    min-height: 44px;
+    padding: 10px;
+    text-align: center
+}
+.panel{
+    padding:20px;
+}
+footer {
+    background: #222222;
+    padding:5px 20px;
+    font-size: 1em;
+    color: #FFFFFF;
+}
+
+header a.sidebar, header a.back {
+    position: absolute;
+    padding: 15px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+header a.sidebar{
+    left: 0;
+    top: 0;
+    font-size: 21px;
+}
+header a.back{
+    right: 0;
+    top: 0;
+    font-size: 34px;
+    padding: 9px 15px;
+}
+
+
+/* Sidebar: Push by Viken */
+
+.v-menu {
+    background: none repeat scroll 0 0 #333333;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 240px;
+    -webkit-transform: translate3d(-240px, 0px, 0px);
+    transform: translate3d(-240px, 0px, 0px);
+    -webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+.vanimate{
+     -webkit-transform: translate3d(240px, 0px, 0px);
+    transform: translate3d(240px, 0px, 0px);
+}
+.v-menu ul {
+    height: 100%;
+    overflow: auto;
+}
+
+.v-menu ul li a {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    display: inline-block;
+    padding: 15px;
+    text-decoration: none;
+    width: 100%;
+}
+

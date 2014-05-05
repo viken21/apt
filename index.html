@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Viken Patel">
+
+    <title>Simple Page Transition for App</title>
+
+    <link href="style.css" rel="stylesheet">
+    <style>
+        button{
+            background:#111;
+            border: 1px solid #111;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #content{
+            height: calc(100% - 80px);
+            position: relative;
+            width: 100%;
+        }
+        .panel{
+            background: #FFFFFF;
+            height: 100%;
+            padding: 20px;
+            position: absolute;
+            width: 100%;
+            -webkit-transition: -webkit-transform 0.5s;
+	                transition: transform 0.5s;
+            z-index: 99;
+        }
+        .next{
+            -webkit-transform: translate3d(100%, 0px, 0px);
+            transform: translate3d(100%, 0px, 0px);
+            z-index: 99;
+        }
+        .prev{
+            -webkit-transform: translate3d(-100%, 0px, 0px);
+            transform: translate3d(-100%, 0px, 0px);
+            z-index: 99;
+        }
+        .current{
+            -webkit-transform: translate3d(0px, 0px, 0px);
+            transform: translate3d(0px, 0px, 0px);
+            z-index: 1000;
+        }
+    </style>
+  </head>
+
+  <body>
+  <div id="wrapper" class="wrapper">
+  	<header>
+        <a class="sidebar" data-slide="slide"><i class="fa fa-bars"></i></a>
+        <h1>Home</h1>
+        <a class="back"><i class="fa fa-angle-left"></i></a>
+    </header>
+    <div id="content">
+    <div id="page1" class="panel current">
+        Page1 Content<br><br>
+        <button data-go="page2" class="gotopage">Go to Page2</button>
+    </div>
+      <div id="page2" class="panel next">
+        Page2 Content<br><br>
+          <button data-go="page1" class="gotopage">Go to Page1</button>
+     </div>
+    </div>
+    <footer>
+        Footer
+    </footer>
+    
+  
+      
+  </div><!--wrapper-->
+   
+    <script src="jquery-2.0.3.min.js"></script>
+    <script>
+        $(function(){
+            $('.gotopage').on('click',function(){
+                var vPage = $(this).attr('data-go');
+                $('.current').addClass('prev');
+                $('.panel').removeClass('current');
+                $('#'+vPage).addClass('current').removeClass('next');
+                setTimeout(function(){
+                    $('.prev').addClass('next').removeClass('prev');    
+                },500);
+                
+            });
+        });  
+    </script>
+  </body>
+</html>
